@@ -1,5 +1,5 @@
 {% set name = "fatpack" %}
-{% set version = "0.7.7" %}
+{% set version = "0.7.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,18 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fatpack-{{ version }}.tar.gz
-  sha256: afb0804844f98672e839764bae490e20a30eadcae693ec86731258001ac7f5e9
+  sha256: 30d8679f5f91c54879da1058357b72ceb1f8b025410eb14fcb3cc69a17299659
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
     - python {{ python_min }}
     - pip
+    - setuptools
   run:
     - python >={{ python_min }}
     - numpy
